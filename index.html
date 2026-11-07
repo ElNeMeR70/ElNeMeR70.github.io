@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElNemer Sovereign Mega-Ecosystem | بوابة النمر البرمجية الشاملة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050811;
+      --card: rgba(15, 23, 42, 0.78);
+      --border: rgba(56, 189, 248, 0.22);
+      --accent: #38bdf8;
+      --gold: #f59e0b;
+      --emerald: #10b981;
+      --purple: #a855f7;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #0f172a 0%, #050811 70%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .container { max-width: 1360px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,41,59,0.65));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      margin-bottom: 2.5rem;
+      backdrop-filter: blur(16px);
+    }
+    .badge-top {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #fff, #38bdf8, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    .subtitle { color: var(--muted); font-size: 1.15rem; max-width: 860px; margin: 0 auto 1.8rem; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .stat-box {
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.1rem;
+      border-radius: 16px;
+    }
+    .stat-num { font-size: 2rem; font-weight: 900; color: var(--gold); font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.9rem; color: var(--muted); }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: var(--card);
+      padding: 1.25rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+    .search-input {
+      flex: 1 1 320px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.3);
+      color: #fff;
+      padding: 0.85rem 1.2rem;
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+    }
+    select, .btn {
+      background: #0f172a;
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary { background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #38bdf8; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 1.4rem;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+    .tag-suite { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .tag-lang { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; font-family: 'JetBrains Mono', monospace; direction: ltr; text-align: left; color: #38bdf8; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.1rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 0.85rem; }
+    code.cmd { background: #020617; padding: 0.3rem 0.6rem; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #a5f3fc; direction: ltr; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge-top">🦁 ENG. MAHMOUD BEK ELNEMER | المهندس محمود النمر (@ElNeMeR70) — SOVEREIGN ENGINEERING HUB</span>
+      <h1>بوابة النمر البرمجية الشاملة</h1>
+      <p class="subtitle">
+        أكبر موسوعة هندسية مفتوحة المصدر تضم أكثر من 6,000 أداة ومحرك برمجي في علوم الحاسب، التراث الإسلامي، الأمن السيبراني، اللسانيات العربية، التمويل الكمي، والمعلوماتية الحيوية بـ 10 لغات برمجة.
+      </p>
+      <div style="display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <a class="btn btn-primary" href="https://github.com/ElNeMeR70?tab=repositories" target="_blank">📂 جميع المستودعات</a>
+        <a class="btn" href="https://github.com/ElNeMeR70?tab=projects" target="_blank">📋 الـ 10 مشاريع (Projects)</a>
+        <a class="btn" href="https://github.com/ElNeMeR70?tab=packages" target="_blank">📦 الحزم البرمجية (Packages)</a>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-num">6,400+</div><div class="stat-label">إجمالي الأدوات المولدة</div></div>
+        <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">لغات برمجة قياسية</div></div>
+        <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">مشاريع GitHub Projects</div></div>
+        <div class="stat-box"><div class="stat-num">20+</div><div class="stat-label">حزم GitHub Packages</div></div>
+        <div class="stat-box"><div class="stat-num">0</div><div class="stat-label">اعتماديات خارجية</div></div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث باسم الأداة، التخصص (قرآن، حديث، ميراث، تشفير، عروض، جينوم، تداول...)" />
+      <select id="suiteFilter">
+        <option value="all">جميع المنظومات (All Suites)</option>
+        <option value="islamic-1000">🕌 islamic-1000 (التراث الإسلامي)</option>
+        <option value="poly-1000">🚀 poly-1000 (علوم الحاسب)</option>
+        <option value="cyber-sec-1000">🛡️ cyber-sec-1000 (الأمن السيبراني)</option>
+        <option value="arabic-nlp-1000">🗣️ arabic-nlp-1000 (اللغة العربية والعروض)</option>
+        <option value="quant-fin-1000">📈 quant-fin-1000 (التمويل الكمي)</option>
+        <option value="bio-med-1000">🧬 bio-med-1000 (الجينوم والطب الحيوي)</option>
+        <option value="mcp-actions">🔌 mcp-100 & actions-100 (خوادم الذكاء والأتمتة)</option>
+      </select>
+      <select id="langFilter">
+        <option value="all">جميع اللغات (10 Languages)</option>
+        <option value="py">Python</option>
+        <option value="ts">TypeScript</option>
+        <option value="rs">Rust</option>
+        <option value="go">Go</option>
+        <option value="cs">C#</option>
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="php">PHP</option>
+        <option value="dart">Dart</option>
+        <option value="sh">Bash</option>
+      </select>
+    </div>
+
+    <div id="toolsGrid" class="grid"></div>
+  </div>
+
+  <script>
+    const SUITES = [
+      { suite: "islamic-1000", prefix: "quran", titleAr: "محرك الرسم العثماني وفهرسة الآيات والجذور القرآنية", slugs: ["uthmani-tokenizer", "root-trilateral-index", "makki-madani-classifier", "sajdah-waqf-parser", "mutashabihat-matcher", "abjad-gematria-calc", "hizb-juz-paginator", "qiraat-ten-diff", "surah-chronology-graph", "tafsir-crossref-linker"] },
+      { suite: "islamic-1000", prefix: "tajweed", titleAr: "محرك أحكام التجويد الصوتي والمخارج والمدود", slugs: ["noon-sakinah-fsm", "meem-sakinah-detector", "madd-duration-estimator", "qalqalah-acoustic-burst", "ghunnah-nasal-formant", "tafkhim-tarqiq-classifier", "idgham-assimilation-tree", "makharij-articulatory-map", "waqf-ibtida-boundary", "lahn-jali-khafi-auditor"] },
+      { suite: "islamic-1000", prefix: "hadith", titleAr: "محرك سلاسل الإسناد والجرح والتعديل وتخريج الأحاديث", slugs: ["isnad-dag-verifier", "rijal-jarh-tadil", "tabaqat-chronology", "matn-similarity-lsh", "mutawatir-ahad-rank", "mudallis-tadlis-check", "ilal-hidden-defect", "takhrij-multi-book", "musnad-atraaf-index", "sahih-hasan-grader"] },
+      { suite: "islamic-1000", prefix: "mirath", titleAr: "محرك حساب المواريث الشرعية والعول والرد والمناسخات", slugs: ["ashab-furud-fractions", "asabah-residuary-tree", "hujb-exclusion-matrix", "awl-proportional-scale", "radd-redistribution", "akdariyyah-mushtarakah", "jadd-ikhwah-solver", "munasakhat-multi-death", "khuntha-haml-reserve", "tarkah-estate-ledger"] },
+      { suite: "cyber-sec-1000", prefix: "cyber", titleAr: "محرك الأمن السيبراني وصيد الثغرات وفحص الكود والشبكات", slugs: ["ast-taint-analyzer", "sourcemap-secret-hunter", "solidity-reentrancy-audit", "ebpf-packet-sentinel", "pq-kyber-kem-vault", "elf-binary-disassembler", "jwt-oauth-fuzzer", "cors-csp-policy-auditor", "subdomains-ct-enumerator", "zero-trust-mtls-proxy"] },
+      { suite: "arabic-nlp-1000", prefix: "ar-nlp", titleAr: "محرك اللسانيات العربية وبحور الشعر الـ 16 والصرف والإعراب", slugs: ["arud-16-meters-scanner", "qafiyah-rhyme-analyzer", "sarf-derivational-morph", "nahw-dependency-parser", "tashkeel-viterbi-restorer", "lisan-alarab-lexicon", "balagha-bayan-detector", "dialect-msa-transformer", "ishtiqaq-root-expander", "abjad-phonetic-encoder"] },
+      { suite: "quant-fin-1000", prefix: "quant", titleAr: "محرك التمويل الكمي ومطابقة الأوامر وتسعير المشتقات", slugs: ["nanosec-lob-matcher", "black-scholes-greeks", "heston-stochastic-vol", "monte-carlo-var-engine", "kelly-optimal-portfolio", "stat-arb-cointegration", "twap-vwap-exec-router", "yield-curve-bootstrapper", "hawkes-orderflow-model", "defi-amm-impermanent-loss"] },
+      { suite: "bio-med-1000", prefix: "biomed", titleAr: "محرك الجينوم وتصميم الـ CRISPR وطي البروتينات", slugs: ["crispr-sgrna-offtarget", "smith-waterman-simd", "de-bruijn-genome-assembler", "vcf-variant-pathogenicity", "ramachandran-dihedral-calc", "ligand-pocket-docking", "pkpd-compartment-solver", "sc-rnaseq-umap-cluster", "hla-epitope-affinity", "fasta-kmer-minimizer"] },
+      { suite: "poly-1000", prefix: "poly", titleAr: "محرك علوم الحاسب والأنظمة الموزعة وقواعد البيانات", slugs: ["raft-consensus-core", "lsm-tree-storage", "bpe-subword-tokenizer", "hnsw-vector-index", "wasm-bytecode-vm", "crdt-orset- replicator", "zk-snark-r1cs-prover", "quic-congestion-ctrl", "ebpf-jit-compiler", "lockfree-ringbuffer"] },
+      { suite: "mcp-actions", prefix: "mcp", titleAr: "خادم Model Context Protocol (MCP) & GitHub Action", slugs: ["quran-hadith-mcp-server", "mirath-zakat-mcp-server", "cyber-recon-mcp-server", "arabic-arud-mcp-server", "quant-risk-mcp-server", "biomed-seq-mcp-server", "polyglot-ast-mcp-server", "security-sast-gh-action", "arabic-lint-gh-action", "islamic-ci-gh-action"] }
+    ];
+    const LANGS = ["py", "ts", "rs", "go", "cs", "java", "cpp", "php", "dart", "sh"];
+    const ALL_ITEMS = [];
+    for (const group of SUITES) {
+      for (const slug of group.slugs) {
+        for (const lang of LANGS) {
+          const name = group.prefix === "poly" ? `${lang}-${slug}` : `${group.prefix}-${lang}-${slug}`;
+          ALL_ITEMS.push({
+            name,
+            suite: group.suite,
+            lang,
+            desc: `${group.titleAr} — مبني بلغة ${lang.toUpperCase()} بدون أي اعتماديات خارجية.`
+          });
+        }
+      }
+    }
+
+    function render() {
+      const q = document.getElementById("searchInput").value.toLowerCase().trim();
+      const sf = document.getElementById("suiteFilter").value;
+      const lf = document.getElementById("langFilter").value;
+      const filtered = ALL_ITEMS.filter(item => {
+        if (sf !== "all" && item.suite !== sf) return false;
+        if (lf !== "all" && item.lang !== lf) return false;
+        if (q && !item.name.toLowerCase().includes(q) && !item.desc.toLowerCase().includes(q)) return false;
+        return true;
+      }).slice(0, 90);
+
+      const grid = document.getElementById("toolsGrid");
+      grid.innerHTML = filtered.map(item => `
+        <div class="card">
+          <div>
+            <div class="tags">
+              <span class="tag tag-suite">${item.suite}</span>
+              <span class="tag tag-lang">${item.lang.toUpperCase()}</span>
+            </div>
+            <h3>${item.name}</h3>
+            <p>${item.desc}</p>
+          </div>
+          <div class="card-footer">
+            <code class="cmd">npx @elnemer70/cli run ${item.name}</code>
+            <a class="btn" style="padding:0.4rem 0.8rem; font-size:0.82rem;" href="https://github.com/ElNeMeR70/${item.name}" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    document.getElementById("searchInput").addEventListener("input", render);
+    document.getElementById("suiteFilter").addEventListener("change", render);
+    document.getElementById("langFilter").addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>
